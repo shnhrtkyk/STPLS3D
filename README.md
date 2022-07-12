@@ -173,18 +173,19 @@ HAIS
 ```
 cd STPLS3D/HAIS/data
 python prepare_data_inst_instance_stpls3d.py
+python prepare_data_inst_instance_stpls3d_test.py
 ```
 
 (optional) In case you are changing training data (i.e., not using data agumentation, using different ways for data agumentation, etc.), please run prepare_data_statistic_stpls3d.py to get the class_weight, class_radius_mean, and class_numpoint_mean_dict. Change them in hais_run_stpls3d.yaml, hierarchical_aggregation.cpp, and hierarchical_aggregation.cu accordingly. Make sure you rebuild the hais_ops.
 
 - Start training:
 ```
-CUDA_VISIBLE_DEVICES=1 python train.py --config config/hais_run_stpls3d.yaml 
+python train.py --config config/hais_run_stpls3d.yaml 
 ```
 
 - Evaluation:
 ```
-CUDA_VISIBLE_DEVICES=1 python test.py --config config/hais_run_stpls3d.yaml --pretrain exp/Synthetic_v3_InstanceSegmentation/hais/hais_run_stpls3d/hais_run_stpls3d-000000500.pth
+python test.py --config config/hais_run_stpls3d.yaml --pretrain exp/Synthetic_v3_InstanceSegmentation/hais/hais_run_stpls3d/hais_run_stpls3d-000000500.pth
 ```
 
 ## (5) Instance segmentation challenge and evaluation server
